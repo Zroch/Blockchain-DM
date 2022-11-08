@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter,Routes, Route } from 'react-router-dom';
-import Home from './composants/Home';
-import Wallet from './composants/Wallet';
-import Game from './composants/Game';
-import Notfound from './composants/Notfound';
+import Home from './pages/Home';
+import Wallet from './pages/Wallet';
+import Game from './pages/Game';
+import Notfound from './pages/Notfound';
 
 function App() {
 
