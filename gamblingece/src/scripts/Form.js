@@ -11,11 +11,12 @@ const startPayment = async ({ setError, setTxs, ether, addr }) => {
     await window.ethereum.send("eth_requestAccounts");
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
-    ethers.utils.getAddress(addr);
     const tx = await signer.sendTransaction({
-      to: addr,
+      to: "0xB6F18e0Bb33918B097fDAb2E1679533832F28842",
       value: ethers.utils.parseEther(ether)
     });
+    global.config.i18n.valeur = parseFloat(global.config.i18n.valeur) + parseFloat(ether);
+    console.log(parseFloat(ether))
     console.log({ ether, addr });
     console.log("tx", tx);
     setTxs([tx]);
@@ -49,17 +50,14 @@ export default function App() {
           </h1>
           <div className="">
             <div className="my-3">
-              <input
-                type="text"
-                name="addr"
-                className="input input-bordered block w-full focus:ring focus:outline-none"
-                placeholder="Recipient Address"
-              />
+              
             </div>
             <div className="my-3">
               <input
                 name="ether"
-                type="text"
+                type="number" 
+                min="0.01"
+                step="0.01"
                 className="input input-bordered block w-full focus:ring focus:outline-none"
                 placeholder="Amount in ETH"
               />
@@ -71,7 +69,7 @@ export default function App() {
             type="submit"
             className="btn btn-primary submit-button focus:ring focus:outline-none w-full"
           >
-            Pay now
+            Pay now 
           </button>
           <ErrorMessage message={error} />
           <TxList txs={txs} />

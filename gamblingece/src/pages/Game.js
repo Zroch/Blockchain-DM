@@ -8,7 +8,7 @@ function Game() {
       <div>
         <div><NavLink to="/" style={({ isActive }) => ({color: isActive ? 'greenyellow' : 'black' })}>Home</NavLink></div>
         <div><Jeux /></div>
-        <div><Withdraw /></div>
+        
       </div>
     );
   }

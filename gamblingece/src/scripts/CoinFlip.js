@@ -1,7 +1,9 @@
 import React,{ Component } from 'react'
 import Coin from './Coin'
- 
+import Withdraws from './Withdraws'
+
 class CoinFlip extends Component{
+  
   static defaultProps = {
     coins : [
      
@@ -21,12 +23,13 @@ class CoinFlip extends Component{
        
       // Track total number of flips
       currFace : null,
-      totalFlips:0,
-      heads: 0
+      heads: 0,
+      tails: 0
     }
      
     // Binding context of this keyword
     this.handleClick = this.handleClick.bind(this)
+    this.handleClick2 = this.handleClick2.bind(this)
   }
  
    // Function takes array of different faces of a coin
@@ -41,12 +44,21 @@ class CoinFlip extends Component{
   flipCoin(){
     const newFace = this.choice(this.props.coins)
     this.setState(curState => {
-      const heads = curState.heads +
-      (newFace.side === 'head' ? 1 : 0)
+      const heads = curState.heads + (newFace.side === 'head' ? 1 : 0)
       return {
         currFace:newFace,
-        totalFlips:curState.totalFlips + 1,
-        heads:heads
+        heads:heads, 
+      }
+    })
+  }
+
+  flipCoin2(){
+    const newFace = this.choice(this.props.coins)
+    this.setState(curState => {
+      const tails = curState.heads + (newFace.side === 'head' ? 1 : 0)
+      return {
+        currFace:newFace,
+        tails:tails, 
       }
     })
   }
@@ -54,8 +66,27 @@ class CoinFlip extends Component{
   handleClick(){
     this.flipCoin()
   }
+  handleClick2(){
+    this.flipCoin2()
+  }
   render(){
-    const {currFace, totalFlips, heads} = this.state
+    var msg = ""
+    var t = null
+    const {currFace,heads,tails} = this.state
+    if (heads === 1 && tails === 0){
+      global.config.i18n.valeur = global.config.i18n.valeur*2;
+      msg = "C'EST GAGNE";
+      t=<Withdraws/>
+    }
+    if (heads === 0 && tails === 1){
+      global.config.i18n.valeur = global.config.i18n.valeur*2;
+      msg = "C'EST GAGNE";
+      t=<Withdraws/>
+    }
+    if (heads === 0 && tails === 0){
+      global.config.i18n.valeur = 0;
+      t="rien a withdraw"
+    }
     return(
       <div>
         <h2>Let's flip a coin</h2>
@@ -64,15 +95,13 @@ class CoinFlip extends Component{
         {currFace && <Coin info={currFace} />}
          
         {/* Button to flip the coin  */}
-        <button onClick={this.handleClick}>Flip Me!</button>
-         
+        <button onClick={this.handleClick} >Pile</button>
+        <button onClick={this.handleClick2} >Face</button>
          
  
-<p>
-          Out of {totalFlips} flips, there have been {heads} heads
-          and {totalFlips - heads} tails
+        <p>
+           tails {global.config.i18n.valeur} {msg} {t}
         </p>
- 
  
  
       </div>

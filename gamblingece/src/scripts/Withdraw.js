@@ -4,7 +4,6 @@ import ABI from '../contract/ABI.json';
 
 function Withdraw() {
   const [balance, setBalance] = useState()
-  const [depositValue, setDepositValue] = useState('')
   const [withdrawValue, setWithdrawValue] = useState('')
 
   const provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -32,22 +31,8 @@ function Withdraw() {
       .catch(console.error);
   })
 
-  const handleDepositChange = (e) => {
-    setDepositValue(e.target.value);
-  }
   const handleWithdrawChange = (e) => {
     setWithdrawValue(e.target.value);
-  }
-
-  const handleDepositSubmit = async (e) => {
-    e.preventDefault()
-    console.log(depositValue)
-    const ethValue = ethers.utils.parseEther(depositValue)
-    const depositEth = await contract.deposit({ value: ethValue })
-    await depositEth.wait()
-    const balance = await provider.getBalance(contractAddress)
-    const balanceFormatted = ethers.utils.formatEther(balance)
-    setBalance(balanceFormatted);
   }
 
   const handleWithdrawSubmit = async (e) => {
@@ -68,15 +53,9 @@ function Withdraw() {
         <div className="row mt-5">
           <div className="col-sm">
             <h3>Welcome</h3>
-            <p>Your Balance: {balance} ETH</p>
+            <p>Your Balance: {balance} ETH et {global.config.i18n.valeur}</p>
           </div>
           <div className="col-sm">
-            <form onSubmit={handleDepositSubmit}>
-              <div className="form-group">
-                <input type="number" className="form-control" placeholder="0" value={depositValue} onChange={handleDepositChange} />
-              </div>
-              <button type="submit" className="btn btn-success mt-3">Deposit</button>
-            </form>
             <form className="mt-5" onSubmit={handleWithdrawSubmit}>
               <div className="form-group">
                 <input type="number" className="form-control" placeholder="0" value={withdrawValue} onChange={handleWithdrawChange} />

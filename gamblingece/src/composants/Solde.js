@@ -27,7 +27,8 @@ function Solde() {
     return(
         
       
-        <div>{balance}</div>
+        <div>{balance} et {global.config.i18n.valeur}</div>
+        
         
     )
 
