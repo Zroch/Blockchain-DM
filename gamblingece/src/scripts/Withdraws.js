@@ -30,14 +30,7 @@ function Withdraws() {
 
   return (
     
-    <div className="container">
-      <div className="container">
-        <div className="row mt-5">
-          <div className="col-sm">
-            <h3>Welcome</h3>
-          </div>
-        </div>
-      </div>
+    <div>
     </div>
   );
 }

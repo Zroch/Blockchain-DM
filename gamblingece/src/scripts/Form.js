@@ -17,6 +17,7 @@ const startPayment = async ({ setError, setTxs, ether, addr }) => {
     });
     global.config.i18n.valeur = parseFloat(global.config.i18n.valeur) + parseFloat(ether);
     console.log(parseFloat(ether))
+    console.log(global.config.i18n.valeur)
     console.log({ ether, addr });
     console.log("tx", tx);
     setTxs([tx]);
@@ -47,7 +48,7 @@ export default function App() {
       <div>
         <main>
           <h1>
-            Déposer des tokens
+            Déposez des tokens
           </h1>
           <div>
             <div>
@@ -71,6 +72,7 @@ export default function App() {
           </button>
           <ErrorMessage message={error} />
           <p>
+          Vous avez déposé : {global.config.i18n.valeur} ETH
           </p>Le hash est :<TxList txs={txs} />
         </footer>
       </div>

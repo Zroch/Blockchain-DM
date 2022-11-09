@@ -28,7 +28,7 @@ function Solde() {
     return(
         
       
-        <h4 className="solde">La banque possède : {balance} de ETH et vous en avez déposé : {global.config.i18n.valeur}</h4>
+        <h4 className="solde">La banque possède : {balance} de ETH</h4>
         
         
     )

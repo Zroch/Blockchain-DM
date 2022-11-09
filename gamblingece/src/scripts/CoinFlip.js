@@ -76,12 +76,12 @@ class CoinFlip extends Component{
     const {currFace,heads,tails} = this.state
     if (heads === 1 && tails === 0){
       global.config.i18n.valeur = global.config.i18n.valeur*2;
-      msg = "C'EST GAGNE";
+      msg = "C'EST GAGNEE";
       t=<Withdraws/>
     }
     if (heads === 0 && tails === 1){
       global.config.i18n.valeur = global.config.i18n.valeur*2;
-      msg = "C'EST GAGNE";
+      msg = "C'EST GAGNEE";
       t=<Withdraws/>
     }
     if (heads === 0 && tails === 0){
