@@ -1,13 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Solde from '../composants/Solde';
+import '../css/home.css';
+
 
 function Home() {
     return (
-      <div>
-        <div><NavLink to="wallet" style={({ isActive }) => ({color: isActive ? 'greenyellow' : 'black' })}>Wallet</NavLink></div>
-        <div><NavLink to="game" style={({ isActive }) => ({color: isActive ? 'greenyellow' : 'black' })}>Jouer</NavLink></div><h1>Home</h1>
-        <div><Solde /></div>
+      <div className="back">
+        <div>
+        <h1 className="bvn">Bienvenue dans le jeu de la pièce !</h1>
+        <h3 className="deux">Parier sur une face, si vous gagner vous récupérez le double de votre mise.</h3>
+        <div className="box"><NavLink className="navlink" to="wallet">Wallet</NavLink></div>
+        </div>
       </div>
     );
   }

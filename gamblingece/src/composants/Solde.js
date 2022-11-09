@@ -1,5 +1,6 @@
 import { ethers } from 'ethers';
 import React, { useState, useEffect } from "react";
+import '../css/home.css';
 
 function Solde() {
     const [balance, setBalance] = useState()  
@@ -27,7 +28,7 @@ function Solde() {
     return(
         
       
-        <div>{balance} et {global.config.i18n.valeur}</div>
+        <h4 className="solde">La banque possède : {balance} de ETH et vous en avez déposé : {global.config.i18n.valeur}</h4>
         
         
     )

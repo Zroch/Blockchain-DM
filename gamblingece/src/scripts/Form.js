@@ -42,39 +42,39 @@ export default function App() {
   };
 
   return (
-    <form className="m-4" onSubmit={handleSubmit}>
-      <div className="credit-card w-full lg:w-1/2 sm:w-auto shadow-lg mx-auto rounded-xl bg-white">
-        <main className="mt-4 p-4">
-          <h1 className="text-xl font-semibold text-gray-700 text-center">
-            Send ETH payment
+    <div  className="centrer">
+    <form onSubmit={handleSubmit}>
+      <div>
+        <main>
+          <h1>
+            Déposer des tokens
           </h1>
-          <div className="">
-            <div className="my-3">
+          <div>
+            <div>
               
             </div>
-            <div className="my-3">
+            <div>
               <input
                 name="ether"
                 type="number" 
                 min="0.01"
                 step="0.01"
-                className="input input-bordered block w-full focus:ring focus:outline-none"
-                placeholder="Amount in ETH"
+                placeholder="Mountant à deposer"
               />
             </div>
           </div>
         </main>
-        <footer className="p-4">
+        <footer>
           <button
-            type="submit"
-            className="btn btn-primary submit-button focus:ring focus:outline-none w-full"
-          >
-            Pay now 
+            type="submit">
+            Déposer
           </button>
           <ErrorMessage message={error} />
-          <TxList txs={txs} />
+          <p>
+          </p>Le hash est :<TxList txs={txs} />
         </footer>
       </div>
     </form>
+    </div>
   );
 }

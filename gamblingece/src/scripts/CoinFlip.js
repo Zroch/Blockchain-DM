@@ -1,6 +1,7 @@
 import React,{ Component } from 'react'
 import Coin from './Coin'
 import Withdraws from './Withdraws'
+import '../css/home.css';
 
 class CoinFlip extends Component{
   
@@ -88,20 +89,20 @@ class CoinFlip extends Component{
       t="rien a withdraw"
     }
     return(
-      <div>
-        <h2>Let's flip a coin</h2>
+      <div className='centrer'>
+        <h1 className='leh1'>Jetez la pièce</h1>
          
         {/* If current face exist then show current face */}
         {currFace && <Coin info={currFace} />}
          
         {/* Button to flip the coin  */}
-        <button onClick={this.handleClick} >Pile</button>
-        <button onClick={this.handleClick2} >Face</button>
+        <button className="button" onClick={this.handleClick} >Pile</button>
+        <button className="button" onClick={this.handleClick2} >Face</button>
          
  
-        <p>
-           tails {global.config.i18n.valeur} {msg} {t}
-        </p>
+        <h5 className="leh5">
+        {msg} {t}
+        </h5>
  
  
       </div>

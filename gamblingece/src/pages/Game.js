@@ -1,12 +1,10 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import Withdraw from "../scripts/Withdraw";
 import Jeux from "../composants/Jeux";
+import '../css/home.css'
 
 function Game() {
     return (
-      <div>
-        <div><NavLink to="/" style={({ isActive }) => ({color: isActive ? 'greenyellow' : 'black' })}>Home</NavLink></div>
+      <div className="back">
         <div><Jeux /></div>
         
       </div>
