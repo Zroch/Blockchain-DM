@@ -1,6 +1,6 @@
 Dm proposé par Lucas Lescot, Emma Debs, Alexis Youf
 
-Le but de ce DM est de proposé une ébauche de site de gambling.
+Le but de ce DM est de proposer une ébauche de site de gambling.
 Nous avons mis en avant :
 - La connection au wallet
 - Dépôt de fonds sur le smart contract
@@ -20,6 +20,7 @@ npm start
 Pour rejouer relancez l'application.
 
 Le contrat solidity : 
+L'interêt de la blockchain est ici de proposer un moyen simple de jouer et sécurisé pour son argent.
 - Autorise le contrat a recevoir des tokens venant de n'importe qu'elle adresse.
 - Affiche le solde du contrat.
 - Retirer l'argent mis sur le contrat.
